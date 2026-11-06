@@ -110,6 +110,82 @@ public class Lab4P1_JulioMartinez {
     }
     
     public static void Ejercicio3(){
-        
+        System.out.print("Ingrese una cadena: ");
+        String cadena1 = leer.next();
+        String letras = "";
+        String numeros = "";
+        String simbolos = "";
+        int letrass = 0;
+        int numeross = 0;
+        int simboloss = 0;
+        double numletras = 0;
+        double numsimbolos = 0;
+        int numerossuma = 0;
+        for (int x = 0; x < cadena1.length(); x++){
+            char letrica = cadena1.charAt(x);
+            
+            if ((letrica >= 65 && letrica <= 90) || (letrica >= 97 && letrica <= 122)){
+                letras += letrica;
+                numletras += letrica;
+                letrass ++;
+                
+            }
+            else if(letrica >= 48 && letrica <= 57){
+                numeros += letrica;
+                numeross ++;
+                numerossuma += Integer.parseInt(numeros);
+                
+            }
+            else{
+                simbolos += letrica;
+                numsimbolos += letrica;
+                simboloss ++;
+            }
+        }
+        if (letrass > 0 && numeross >0 && simboloss >0){
+            System.out.println("Letras: "+ letras);
+            System.out.println("Numeros: "+ numeros);
+            System.out.println("Simbolos: "+ simbolos);
+            System.out.println();
+            System.out.println("Total Letras: "+ letrass);
+            System.out.println("Total Numeros: "+ numeross);
+            System.out.println("Total Simbolos: "+ simboloss);
+            System.out.println("Suma de numeros: "+ numerossuma);
+            System.out.println();
+            double promedioletras = numletras/letras.length();
+            System.out.println("promedio ASCII de letras: "+ promedioletras);
+            double promediosimbolos = numsimbolos/simbolos.length();
+            System.out.println("promedio ASCII de letras: "+ promediosimbolos);
+            
+        }
+        else if (letrass == 0 && numeross > 0 && simboloss > 0 ){
+            System.out.println("No hay letras");
+            System.out.println("Numeros: "+ numeros);
+            System.out.println("Simbolos: "+ simbolos);
+            System.out.println("Suma de numeros: "+ numerossuma);
+            System.out.println();
+            double promediosimbolos = numsimbolos/simbolos.length();
+            System.out.println("promedio ASCII de letras: "+ promediosimbolos);
+            
+        }
+        else if (letrass > 0 && numeross == 0 && simboloss >0){
+            System.out.println("Letras: "+ letras);
+            System.out.println("No hay numeros");
+            System.out.println("Simbolos: "+ simbolos);
+            System.out.println();
+            double promedioletras = numletras/letras.length();
+            System.out.println("promedio ASCII de letras: "+ promedioletras);
+            double promediosimbolos = numsimbolos/simbolos.length();
+            System.out.println("promedio ASCII de letras: "+ promediosimbolos);
+        }
+        else if(letrass > 0 && numeross > 0 && simboloss == 0){
+            System.out.println("Letras: "+ letras);
+            System.out.println("Numeros: "+ numeros);
+            System.out.println("No hay Simbolos");
+            System.out.println("Suma de numeros: "+ numerossuma);
+            System.out.println();
+            double promedioletras = numletras/letras.length();
+            System.out.println("promedio ASCII de letras: "+ promedioletras);
+        }
     }
 }
