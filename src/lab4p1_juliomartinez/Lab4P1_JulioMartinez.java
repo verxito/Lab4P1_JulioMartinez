@@ -23,7 +23,6 @@ public class Lab4P1_JulioMartinez {
                 }
                 
                 case 4:{
-                    System.out.println("GRACIAS POR VISITAR EL CUARTO LAB :)");
                     break;
                 }
                 
@@ -53,12 +52,10 @@ public class Lab4P1_JulioMartinez {
         System.out.print("Ingrese la segunda cadena: ");
         String cadena2 = leer.next();
         cadena2 = cadena2.toUpperCase();
-        int espacios = 0;
-        int numcadena1;
-        int numcadena2;
+        int vuelva = 0;
         String contra = "";
         
-        while (cadena1.length() != cadena2.length()){
+        while (cadena1.length() != cadena2.length() || vuelva == 1){
             System.out.println("Tienen que ser del mismo size");
             System.out.print("Ingrese la primera cadena: ");
             cadena1 = leer.next();
@@ -120,7 +117,9 @@ public class Lab4P1_JulioMartinez {
         int simboloss = 0;
         double numletras = 0;
         double numsimbolos = 0;
-        int numerossuma = 0;
+        String numerossuma1 = "";
+        int total = 0;
+        int numnumeros = 0;
         for (int x = 0; x < cadena1.length(); x++){
             char letrica = cadena1.charAt(x);
             
@@ -132,15 +131,21 @@ public class Lab4P1_JulioMartinez {
             }
             else if(letrica >= 48 && letrica <= 57){
                 numeros += letrica;
-                numeross ++;
-                numerossuma += Integer.parseInt(numeros);
-                
+                numeross ++;                
             }
             else{
                 simbolos += letrica;
                 numsimbolos += letrica;
                 simboloss ++;
             }
+        }
+        System.out.println();
+        for (int n = 0; n < numeros.length(); n++){
+            char si = numeros.charAt(n);
+            String no = "";
+            no += si;
+            numnumeros = Integer.parseInt(no);
+            total += numnumeros;
         }
         if (letrass > 0 && numeross >0 && simboloss >0){
             System.out.println("Letras: "+ letras);
@@ -150,22 +155,23 @@ public class Lab4P1_JulioMartinez {
             System.out.println("Total Letras: "+ letrass);
             System.out.println("Total Numeros: "+ numeross);
             System.out.println("Total Simbolos: "+ simboloss);
-            System.out.println("Suma de numeros: "+ numerossuma);
+            System.out.println("Suma de numeros: "+ total);
             System.out.println();
             double promedioletras = numletras/letras.length();
             System.out.println("promedio ASCII de letras: "+ promedioletras);
             double promediosimbolos = numsimbolos/simbolos.length();
-            System.out.println("promedio ASCII de letras: "+ promediosimbolos);
-            
+            System.out.println("promedio ASCII de simbolos: "+ promediosimbolos);
+            System.out.println();   
         }
         else if (letrass == 0 && numeross > 0 && simboloss > 0 ){
             System.out.println("No hay letras");
             System.out.println("Numeros: "+ numeros);
             System.out.println("Simbolos: "+ simbolos);
-            System.out.println("Suma de numeros: "+ numerossuma);
+            System.out.println("Suma de numeros: "+ total);
             System.out.println();
             double promediosimbolos = numsimbolos/simbolos.length();
-            System.out.println("promedio ASCII de letras: "+ promediosimbolos);
+            System.out.println("promedio ASCII de simbolos: "+ promediosimbolos);
+            System.out.println();
             
         }
         else if (letrass > 0 && numeross == 0 && simboloss >0){
@@ -176,16 +182,64 @@ public class Lab4P1_JulioMartinez {
             double promedioletras = numletras/letras.length();
             System.out.println("promedio ASCII de letras: "+ promedioletras);
             double promediosimbolos = numsimbolos/simbolos.length();
-            System.out.println("promedio ASCII de letras: "+ promediosimbolos);
+            System.out.println("promedio ASCII de simbolos: "+ promediosimbolos);
+            System.out.println();
         }
         else if(letrass > 0 && numeross > 0 && simboloss == 0){
             System.out.println("Letras: "+ letras);
             System.out.println("Numeros: "+ numeros);
             System.out.println("No hay Simbolos");
-            System.out.println("Suma de numeros: "+ numerossuma);
+            System.out.println("Suma de numeros: "+ total);
             System.out.println();
             double promedioletras = numletras/letras.length();
             System.out.println("promedio ASCII de letras: "+ promedioletras);
+            System.out.println();
         }
+        //
+        else if (letrass > 0 && numeross == 0 && simboloss == 0){
+            System.out.println("Letras: "+ letras);
+            System.out.println("No hay numeros");
+            System.out.println("No hay Simbolos");
+            System.out.println();
+            System.out.println("Total Letras: "+ letrass);
+            System.out.println();
+            double promedioletras = numletras/letras.length();
+            System.out.println("promedio ASCII de letras: "+ promedioletras);
+            System.out.println();   
+        }
+        else if (letrass == 0 && numeross == 0 && simboloss > 0 ){
+            System.out.println("No hay letras");
+            System.out.println("No hay numeros");
+            System.out.println("Simbolos: "+ simbolos);
+            System.out.println();
+            double promediosimbolos = numsimbolos/simbolos.length();
+            System.out.println("promedio ASCII de simbolos: "+ promediosimbolos);
+            System.out.println();
+            
+        }
+        else if (letrass == 0 && numeross > 0 && simboloss == 0){
+            System.out.println("No hay letras");
+            System.out.println("No hay numeros");
+            System.out.println("Suma de numeros: "+ total);
+            System.out.println();
+        }
+        
+        for (int y = 0; y < cadena1.length(); y++){
+            char letrica = cadena1.charAt(y);
+            
+            if ((letrica >= 65 && letrica <= 90) || (letrica >= 97 && letrica <= 122)){
+                numletras = letrica;
+                System.out.println(letrica +" -> "+ numletras+ " (letra)");  
+            }
+            else if(letrica >= 48 && letrica <= 57){
+                numnumeros = letrica;
+                System.out.println(letrica +" -> "+ numnumeros + " (numero)");
+            }
+            else{
+                numsimbolos = letrica;
+                System.out.println(letrica +" -> "+ numsimbolos + " (simbolo)");
+            }
+        }
+        System.out.println();
     }
 }
